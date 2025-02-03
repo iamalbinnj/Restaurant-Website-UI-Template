@@ -69,6 +69,7 @@ function fetchDishData() {
                                       ${product.rating.rate}
                                   </p>
                               </div>
+                              <button class="btn btn-primary-custom mt-3" onclick="viewProduct(${product.id})">View Details</button>
                           </div>
                       </div>
                   `;
