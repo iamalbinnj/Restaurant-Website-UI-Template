@@ -106,3 +106,7 @@ function fetchDishData() {
 document.addEventListener("DOMContentLoaded", function () {
   fetchDishData();
 });
+
+const viewProduct = (productId) => {
+  window.location.href = `product-details.html?id=${productId}`;
+}
