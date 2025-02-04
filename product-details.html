@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/product-detailes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <title>Product Details - Restaurant</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white py-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-4" href="/">
+                    <div class="f-box"><span class="text-primary-custom">F</span></div>OODI
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto gap-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Offers</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="btn search-button">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                        <button class="btn cart-button position-relative">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                                <path d="M3 6h18" />
+                                <path d="M16 10a4 4 0 0 1-8 0" />
+                            </svg>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge">
+                                8
+                            </span>
+                        </button>
+                        <button class="btn btn-primary-custom d-flex align-items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            Contact
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container py-5">
+        <div class="row align-items-center gy-5">
+            <div class="col-md-6">
+                <img src="" alt="Product" class="rounded mb-3 product-image" id="product-image">
+
+            </div>
+            <div class="col-md-6">
+                <p class="mb-4 small-heading" id="categories">SKU: WH1000XM4</p>
+                <h2 class="mb-3 main-heading" id="product-name">Premium Wireless Headphones</h2>
+                <div class="mb-3">
+                    <span class="h4 me-2 price" id="product-price">$349.99</span>
+                </div>
+                <div class="mb-3">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1_264)">
+                            <path
+                                d="M0.884536 8.26684L3.25787 10.0002L2.35654 12.7915C2.21088 13.2244 2.20903 13.6928 2.35128 14.1269C2.49352 14.561 2.77223 14.9374 3.14587 15.2002C3.5131 15.4714 3.95813 15.6166 4.41464 15.6144C4.87115 15.6121 5.3147 15.4624 5.6792 15.1875L7.99987 13.4795L10.3212 15.1855C10.6878 15.4551 11.1304 15.6016 11.5855 15.6038C12.0405 15.606 12.4845 15.4639 12.8537 15.1978C13.2229 14.9318 13.4982 14.5555 13.6401 14.1232C13.7819 13.6908 13.783 13.2246 13.6432 12.7915L12.7419 10.0002L15.1152 8.26684C15.4813 7.99918 15.7534 7.62267 15.8928 7.1911C16.0321 6.75953 16.0315 6.29496 15.891 5.86377C15.7505 5.43257 15.4774 5.05679 15.1106 4.79011C14.7437 4.52343 14.302 4.37949 13.8485 4.37884H10.9332L10.0485 1.62151C9.90942 1.18748 9.63605 0.808849 9.26785 0.540217C8.89965 0.271584 8.45565 0.126831 7.99987 0.126831C7.54409 0.126831 7.10009 0.271584 6.73189 0.540217C6.36369 0.808849 6.09032 1.18748 5.9512 1.62151L5.06654 4.37884H2.15387C1.70037 4.37949 1.25866 4.52343 0.891856 4.79011C0.525048 5.05679 0.251896 5.43257 0.111417 5.86377C-0.0290628 6.29496 -0.0296845 6.75953 0.10964 7.1911C0.248965 7.62267 0.52111 7.99918 0.887203 8.26684H0.884536Z"
+                                fill="#FFE605" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_264">
+                                <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1_264)">
+                            <path
+                                d="M0.884536 8.26684L3.25787 10.0002L2.35654 12.7915C2.21088 13.2244 2.20903 13.6928 2.35128 14.1269C2.49352 14.561 2.77223 14.9374 3.14587 15.2002C3.5131 15.4714 3.95813 15.6166 4.41464 15.6144C4.87115 15.6121 5.3147 15.4624 5.6792 15.1875L7.99987 13.4795L10.3212 15.1855C10.6878 15.4551 11.1304 15.6016 11.5855 15.6038C12.0405 15.606 12.4845 15.4639 12.8537 15.1978C13.2229 14.9318 13.4982 14.5555 13.6401 14.1232C13.7819 13.6908 13.783 13.2246 13.6432 12.7915L12.7419 10.0002L15.1152 8.26684C15.4813 7.99918 15.7534 7.62267 15.8928 7.1911C16.0321 6.75953 16.0315 6.29496 15.891 5.86377C15.7505 5.43257 15.4774 5.05679 15.1106 4.79011C14.7437 4.52343 14.302 4.37949 13.8485 4.37884H10.9332L10.0485 1.62151C9.90942 1.18748 9.63605 0.808849 9.26785 0.540217C8.89965 0.271584 8.45565 0.126831 7.99987 0.126831C7.54409 0.126831 7.10009 0.271584 6.73189 0.540217C6.36369 0.808849 6.09032 1.18748 5.9512 1.62151L5.06654 4.37884H2.15387C1.70037 4.37949 1.25866 4.52343 0.891856 4.79011C0.525048 5.05679 0.251896 5.43257 0.111417 5.86377C-0.0290628 6.29496 -0.0296845 6.75953 0.10964 7.1911C0.248965 7.62267 0.52111 7.99918 0.887203 8.26684H0.884536Z"
+                                fill="#FFE605" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_264">
+                                <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1_264)">
+                            <path
+                                d="M0.884536 8.26684L3.25787 10.0002L2.35654 12.7915C2.21088 13.2244 2.20903 13.6928 2.35128 14.1269C2.49352 14.561 2.77223 14.9374 3.14587 15.2002C3.5131 15.4714 3.95813 15.6166 4.41464 15.6144C4.87115 15.6121 5.3147 15.4624 5.6792 15.1875L7.99987 13.4795L10.3212 15.1855C10.6878 15.4551 11.1304 15.6016 11.5855 15.6038C12.0405 15.606 12.4845 15.4639 12.8537 15.1978C13.2229 14.9318 13.4982 14.5555 13.6401 14.1232C13.7819 13.6908 13.783 13.2246 13.6432 12.7915L12.7419 10.0002L15.1152 8.26684C15.4813 7.99918 15.7534 7.62267 15.8928 7.1911C16.0321 6.75953 16.0315 6.29496 15.891 5.86377C15.7505 5.43257 15.4774 5.05679 15.1106 4.79011C14.7437 4.52343 14.302 4.37949 13.8485 4.37884H10.9332L10.0485 1.62151C9.90942 1.18748 9.63605 0.808849 9.26785 0.540217C8.89965 0.271584 8.45565 0.126831 7.99987 0.126831C7.54409 0.126831 7.10009 0.271584 6.73189 0.540217C6.36369 0.808849 6.09032 1.18748 5.9512 1.62151L5.06654 4.37884H2.15387C1.70037 4.37949 1.25866 4.52343 0.891856 4.79011C0.525048 5.05679 0.251896 5.43257 0.111417 5.86377C-0.0290628 6.29496 -0.0296845 6.75953 0.10964 7.1911C0.248965 7.62267 0.52111 7.99918 0.887203 8.26684H0.884536Z"
+                                fill="#FFE605" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_264">
+                                <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1_266)">
+                            <path
+                                d="M4.568 15.6249C4.0592 15.6226 3.56419 15.4592 3.154 15.1582C2.73481 14.8633 2.42201 14.441 2.26213 13.954C2.10226 13.4671 2.10385 12.9415 2.26667 12.4555L3.04667 10.0429L0.993332 8.54153C0.581627 8.24073 0.275611 7.81742 0.119067 7.33216C-0.0374772 6.8469 -0.0365279 6.32457 0.121779 5.83988C0.280086 5.3552 0.587639 4.933 1.00043 4.6337C1.41323 4.33439 1.91012 4.17333 2.42 4.17353H4.93333L5.69667 1.79353C5.85333 1.30616 6.16063 0.88108 6.57432 0.579519C6.98801 0.277959 7.48673 0.115479 7.99867 0.115479C8.5106 0.115479 9.00933 0.277959 9.42301 0.579519C9.8367 0.88108 10.144 1.30616 10.3007 1.79353L11.0667 4.17353H13.58C14.0898 4.17347 14.5866 4.33464 14.9993 4.63399C15.412 4.93334 15.7194 5.35554 15.8777 5.8402C16.0359 6.32485 16.0368 6.84713 15.8802 7.33232C15.7237 7.81751 15.4177 8.24077 15.006 8.54153L12.9533 10.0429L13.7333 12.4555C13.8906 12.9422 13.8894 13.4662 13.73 13.9522C13.5706 14.4382 13.2612 14.8611 12.8463 15.1601C12.4313 15.4591 11.9322 15.6187 11.4208 15.6161C10.9093 15.6135 10.4119 15.4487 10 15.1455L8 13.6749L6 15.1462C5.58617 15.4549 5.08425 15.6226 4.568 15.6249ZM2.42 6.17353C2.332 6.17352 2.24625 6.20133 2.17501 6.25298C2.10376 6.30462 2.05067 6.37747 2.02331 6.46111C1.99595 6.54474 1.99572 6.63488 2.02267 6.71865C2.04961 6.80242 2.10234 6.87553 2.17333 6.92753L4.81067 8.85487C4.98049 8.97904 5.10682 9.15361 5.1717 9.35373C5.23657 9.55386 5.23668 9.76934 5.172 9.96953L4.172 13.0695C4.14425 13.1536 4.14397 13.2444 4.17119 13.3286C4.19841 13.4129 4.25173 13.4863 4.32343 13.5383C4.39513 13.5902 4.4815 13.618 4.57005 13.6176C4.6586 13.6173 4.74473 13.5888 4.816 13.5362L7.40867 11.6289C7.58042 11.5025 7.78809 11.4343 8.00133 11.4343C8.21458 11.4343 8.42224 11.5025 8.594 11.6289L11.1867 13.5355C11.2578 13.5886 11.3441 13.6175 11.4329 13.6181C11.5216 13.6187 11.6083 13.5909 11.6801 13.5388C11.752 13.4868 11.8054 13.4131 11.8325 13.3285C11.8595 13.244 11.8589 13.153 11.8307 13.0689L10.8307 9.96887C10.766 9.76868 10.7661 9.55319 10.831 9.35307C10.8958 9.15294 11.0222 8.97837 11.192 8.8542L13.8287 6.92687C13.8996 6.8749 13.9523 6.80185 13.9793 6.71814C14.0062 6.63444 14.0061 6.54436 13.9788 6.46076C13.9515 6.37715 13.8985 6.3043 13.8274 6.2526C13.7563 6.2009 13.6706 6.173 13.5827 6.17287H10.3333C10.1215 6.17281 9.91522 6.10552 9.74413 5.98067C9.57304 5.85583 9.446 5.67988 9.38133 5.4782L8.4 2.4042C8.37297 2.32007 8.31993 2.24668 8.24853 2.19462C8.17712 2.14256 8.09103 2.11451 8.00267 2.11451C7.9143 2.11451 7.82821 2.14256 7.7568 2.19462C7.6854 2.24668 7.63236 2.32007 7.60533 2.4042L6.61667 5.47887C6.5521 5.68023 6.42537 5.85594 6.25468 5.98075C6.08399 6.10556 5.87812 6.17306 5.66667 6.17353H2.42Z"
+                                fill="#B0B4B7" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_266">
+                                <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1_266)">
+                            <path
+                                d="M4.568 15.6249C4.0592 15.6226 3.56419 15.4592 3.154 15.1582C2.73481 14.8633 2.42201 14.441 2.26213 13.954C2.10226 13.4671 2.10385 12.9415 2.26667 12.4555L3.04667 10.0429L0.993332 8.54153C0.581627 8.24073 0.275611 7.81742 0.119067 7.33216C-0.0374772 6.8469 -0.0365279 6.32457 0.121779 5.83988C0.280086 5.3552 0.587639 4.933 1.00043 4.6337C1.41323 4.33439 1.91012 4.17333 2.42 4.17353H4.93333L5.69667 1.79353C5.85333 1.30616 6.16063 0.88108 6.57432 0.579519C6.98801 0.277959 7.48673 0.115479 7.99867 0.115479C8.5106 0.115479 9.00933 0.277959 9.42301 0.579519C9.8367 0.88108 10.144 1.30616 10.3007 1.79353L11.0667 4.17353H13.58C14.0898 4.17347 14.5866 4.33464 14.9993 4.63399C15.412 4.93334 15.7194 5.35554 15.8777 5.8402C16.0359 6.32485 16.0368 6.84713 15.8802 7.33232C15.7237 7.81751 15.4177 8.24077 15.006 8.54153L12.9533 10.0429L13.7333 12.4555C13.8906 12.9422 13.8894 13.4662 13.73 13.9522C13.5706 14.4382 13.2612 14.8611 12.8463 15.1601C12.4313 15.4591 11.9322 15.6187 11.4208 15.6161C10.9093 15.6135 10.4119 15.4487 10 15.1455L8 13.6749L6 15.1462C5.58617 15.4549 5.08425 15.6226 4.568 15.6249ZM2.42 6.17353C2.332 6.17352 2.24625 6.20133 2.17501 6.25298C2.10376 6.30462 2.05067 6.37747 2.02331 6.46111C1.99595 6.54474 1.99572 6.63488 2.02267 6.71865C2.04961 6.80242 2.10234 6.87553 2.17333 6.92753L4.81067 8.85487C4.98049 8.97904 5.10682 9.15361 5.1717 9.35373C5.23657 9.55386 5.23668 9.76934 5.172 9.96953L4.172 13.0695C4.14425 13.1536 4.14397 13.2444 4.17119 13.3286C4.19841 13.4129 4.25173 13.4863 4.32343 13.5383C4.39513 13.5902 4.4815 13.618 4.57005 13.6176C4.6586 13.6173 4.74473 13.5888 4.816 13.5362L7.40867 11.6289C7.58042 11.5025 7.78809 11.4343 8.00133 11.4343C8.21458 11.4343 8.42224 11.5025 8.594 11.6289L11.1867 13.5355C11.2578 13.5886 11.3441 13.6175 11.4329 13.6181C11.5216 13.6187 11.6083 13.5909 11.6801 13.5388C11.752 13.4868 11.8054 13.4131 11.8325 13.3285C11.8595 13.244 11.8589 13.153 11.8307 13.0689L10.8307 9.96887C10.766 9.76868 10.7661 9.55319 10.831 9.35307C10.8958 9.15294 11.0222 8.97837 11.192 8.8542L13.8287 6.92687C13.8996 6.8749 13.9523 6.80185 13.9793 6.71814C14.0062 6.63444 14.0061 6.54436 13.9788 6.46076C13.9515 6.37715 13.8985 6.3043 13.8274 6.2526C13.7563 6.2009 13.6706 6.173 13.5827 6.17287H10.3333C10.1215 6.17281 9.91522 6.10552 9.74413 5.98067C9.57304 5.85583 9.446 5.67988 9.38133 5.4782L8.4 2.4042C8.37297 2.32007 8.31993 2.24668 8.24853 2.19462C8.17712 2.14256 8.09103 2.11451 8.00267 2.11451C7.9143 2.11451 7.82821 2.14256 7.7568 2.19462C7.6854 2.24668 7.63236 2.32007 7.60533 2.4042L6.61667 5.47887C6.5521 5.68023 6.42537 5.85594 6.25468 5.98075C6.08399 6.10556 5.87812 6.17306 5.66667 6.17353H2.42Z"
+                                fill="#B0B4B7" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_266">
+                                <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span class="ms-2" id="product-rating">4.5 (120 reviews)</span>
+                </div>
+                <p class="mb-4" id="product-details">Experience premium sound quality and industry-leading noise
+                    cancellation with these
+                    wireless
+                    headphones. Perfect for music lovers and frequent travelers.</p>
+                <button class="btn btn-primary-custom btn-lg mb-3 me-2">
+                    <i class="bi bi-cart-plus"></i> Buy
+                </button>
+                <button class="btn btn-outline-secondary btn-lg mb-3 me-2">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="container py-5">
+        <div class="row g-5 justify-content-center text-center text-md-start">
+            <div class="col-md-3">
+                <a href="./index.html"
+                    class="fw-bold fs-4 text-dark d-flex align-items-center mb-3 gap-2 justify-content-center justify-content-md-start">
+                    <div class="f-box"><span class="text-primary-custom">F</span></div>OODI
+                </a>
+                <p class="text-secondary">Savor the artistry where every dish is a culinary masterpiece</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="fs-5 fw-semibold">Useful Links</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3 class="fs-5 fw-semibold">Main Menu</h3>
+                <ul class="list-unstyled">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Offers</a></li>
+                    <li><a href="#">Menus</a></li>
+                    <li><a href="#">Reservation</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3 class="fs-5 fw-semibold">Contact Us</h3>
+                <ul class="list-unstyled">
+                    <li><a href="mailto:foodi@gmail.com">foodi@gmail.com</a></li>
+                    <li><a href="tel:+2348137883795">+234 813 788 3795</a></li>
+                    <li><a href="#">Social Media</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+            <div class="rounded-circle d-flex align-items-center justify-content-start gap-3 social-icons">
+                <a href="#" class="p-2 rounded-circle d-flex align-items-center justify-content-center social-icon">
+                    <svg width="18" height="24" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16 2H12.1818C10.4941 2 8.8754 2.67045 7.68209 3.86387C6.48863 5.05728 5.81818 6.6759 5.81818 8.36364V12.1818H2V17.2727H5.81818V27.4545H10.9091V17.2727H14.7273L16 12.1818H10.9091V8.36364C10.9091 8.02608 11.0432 7.70237 11.2819 7.46368C11.5205 7.225 11.8443 7.09091 12.1818 7.09091H16V2Z"
+                            stroke="" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#" class="p-2 rounded-circle d-flex align-items-center justify-content-center social-icon">
+                    <svg width="26" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13 17.8891C15.7 17.8891 17.8889 15.7002 17.8889 13.0002C17.8889 10.3002 15.7 8.11133 13 8.11133C10.3 8.11133 8.11115 10.3002 8.11115 13.0002C8.11115 15.7002 10.3 17.8891 13 17.8891Z"
+                            stroke="" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M2 17.8889V8.11111C2 4.73604 4.73604 2 8.11111 2H17.8889C21.2639 2 24 4.73604 24 8.11111V17.8889C24 21.2639 21.2639 24 17.8889 24H8.11111C4.73604 24 2 21.2639 2 17.8889Z"
+                            stroke="" stroke-width="2.5" />
+                        <path d="M19.7222 6.29069L19.7351 6.27637" stroke="" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#" class="p-2 rounded-circle d-flex align-items-center justify-content-center social-icon">
+                    <svg width="30" height="24" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M28 2.01189C28 2.01189 25.6152 3.42075 24.2891 3.82007C23.5773 3.00167 22.6314 2.42161 21.5792 2.15834C20.527 1.89508 19.4194 1.96129 18.4061 2.34806C17.3928 2.73482 16.5227 3.42345 15.9135 4.32082C15.3043 5.2182 14.9855 6.28101 15 7.36552V8.54734C12.9231 8.60119 10.8651 8.14057 9.00937 7.2065C7.1536 6.27243 5.55765 4.89391 4.36364 3.19371C4.36364 3.19371 -0.363636 13.8301 10.2727 18.5574C7.83881 20.2095 4.93937 21.0379 2 20.921C12.6364 26.8301 25.6364 20.921 25.6364 7.33007C25.6353 7.00087 25.6036 6.67249 25.5418 6.34916C26.748 5.15965 28 2.01189 28 2.01189Z"
+                            stroke="" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#" class="p-2 rounded-circle d-flex align-items-center justify-content-center social-icon">
+                    <svg width="31" height="24" viewBox="0 0 31 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.2 11.5855L13.475 14.2855V8.8855L18.2 11.5855Z" fill="" stroke="" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M2 12.5403V10.6299C2 6.72115 2 4.76681 3.22241 3.50933C4.44484 2.25184 6.36936 2.19741 10.2184 2.08855C12.0423 2.03696 13.9054 2 15.5 2C17.0946 2 18.9578 2.03696 20.7816 2.08855C24.6306 2.19741 26.5551 2.25184 27.7776 3.50933C29 4.76681 29 6.72115 29 10.6299V12.5403C29 16.4489 29 18.4033 27.7776 19.6607C26.5551 20.9182 24.6307 20.9726 20.7817 21.0816C18.9578 21.1331 17.0946 21.1701 15.5 21.1701C13.9054 21.1701 12.0422 21.1331 10.2183 21.0816C6.36929 20.9726 4.44481 20.9182 3.2224 19.6607C2 18.4033 2 16.4489 2 12.5403Z"
+                            stroke="" stroke-width="2.5" />
+                    </svg>
+                </a>
+            </div>
+            <p class="text-secondary mt-3 mt-md-0 ml-md-auto">Copyright &copy; 2023 FOODI | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/product-details.js"></script>
+</body>
+
+</html>
