@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+</head>
+<body>
+    <h1>All Categories</h1>
+    <form action="/categories" method="POST">
+        <input type="text" name="name" id="newCategory" placeholder="New Category Name" required>
+        <button type="submit">Add Category</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% categories.forEach(category => { %>
+                <tr id="row-<%= category.id %>">
+                    <td><%= category.id %></td>
+                    <td>
+                        <span id="name-<%= category.id %>"><%= category.name %></span>
+                        <input type="text" id="edit-name-<%= category.id %>" value="<%= category.name %>" style="display:none;">
+                    </td>
+                    <td>
+                        <button onclick="startEdit(<%= category.id %>)">Edit</button>
+                        <button onclick="updateCategory(<%= category.id %>)" style="display:none;" id="save-<%= category.id %>">Save</button>
+                        <button onclick="deleteCategory(<%= category.id %>)">Delete</button>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <button onclick="deleteAllCategories()">Delete All</button>
+
+    <script>
+        function startEdit(id) {
+            document.getElementById("name-" + id).style.display = "none";
+            document.getElementById("edit-name-" + id).style.display = "inline-block";
+            document.getElementById("save-" + id).style.display = "inline-block";
+        }
+
+        async function updateCategory(id) {
+            const newName = document.getElementById("edit-name-" + id).value;
+            const response = await fetch(`/categories/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name: newName }),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                document.getElementById("name-" + id).innerText = newName;
+                document.getElementById("name-" + id).style.display = "inline";
+                document.getElementById("edit-name-" + id).style.display = "none";
+                document.getElementById("save-" + id).style.display = "none";
+            } else {
+                alert("Error: " + data.message);
+            }
+        }
+
+        async function deleteCategory(id) {
+            if (!confirm("Are you sure?")) return;
+
+            const response = await fetch(`/categories/${id}`, { method: "DELETE" });
+            const data = await response.json();
+
+            if (response.ok) {
+                document.getElementById("row-" + id).remove();
+            } else {
+                alert("Error: " + data.message);
+            }
+        }
+        async function deleteAllCategories() {
+            if (!confirm("Delete all categories?")) return;
+
+            const response = await fetch(`/categories`, { method: "DELETE" });
+            const data = await response.json();
+
+            if (response.ok) {
+                window.location.reload(); 
+            } else {
+                alert("Error: " + data.message);
+            }
+        }
+    </script>
+</body>
+</html>

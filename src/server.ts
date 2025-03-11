@@ -2,11 +2,19 @@ import express from "express";
 import { AppDataSource } from "./data-source";
 import categoryRoutes from "./routes/categoryRoutes";
 import { errorHandler } from "./middleware/errorHandler";
+import path from "path";
 
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/api/v1/category", categoryRoutes);
+
+app.use("/", categoryRoutes);
 app.use(errorHandler);
 
 AppDataSource.initialize()

@@ -18,7 +18,8 @@ export const createCategory = async (req: Request, res: Response, next: NextFunc
 export const getAllCategories = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const categories = await AppDataSource.getRepository(Category).find();
-    res.json({categories, "length":categories.length});
+    res.render("index", { categories, "length":categories.length} );
+    // res.json({categories, "length":categories.length});
   } catch (error) {
     next(error);
   }
