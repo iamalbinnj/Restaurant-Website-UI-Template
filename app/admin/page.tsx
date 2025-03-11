@@ -1,30 +1,28 @@
-"use client"; 
+"use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-interface Product {
+interface Category {
   id: number;
-  title: string;
-  price: number;
-  category: string;
+  name: string;
 }
 
-const API_URL = "https://fakestoreapi.com/products"; 
+const API_URL = "http://localhost:5000/api/v1/category"; 
 
-const AdminPage: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+const Admin: React.FC = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [editProduct, setEditProduct] = useState<Product | null>(null);
-
+  const [editCategory, setEditCategory] = useState<Category | null>(null);
+  const [newCategory, setNewCategory] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL);
-        if (!response.ok) throw new Error("Failed to fetch data");
-        const data: Product[] = await response.json();
-        setProducts(data);
+        if (!response.ok) throw new Error("Failed to fetch categories");
+        const data = await response.json();
+        setCategories(data.categories);
       } catch (error) {
         setError((error as Error).message);
       } finally {
@@ -34,98 +32,126 @@ const AdminPage: React.FC = () => {
     fetchData();
   }, []);
 
-
-  const handleDelete = async (id: number) => {
-    if (!window.confirm("Are you sure you want to delete this item?")) return;
+  const handleAdd = async () => {
+    if (!newCategory) return;
     try {
-      const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-      if (!response.ok) throw new Error("Failed to delete product");
-      setProducts(products.filter((product) => product.id !== id));
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: newCategory }),
+      });
+
+      if (!response.ok) throw new Error("Failed to add category");
+      const data = await response.json();
+      setCategories([...categories, data.category]);
+      setNewCategory("");
     } catch (error) {
-      alert("Error deleting product: " + (error as Error).message);
+      alert("Error adding category: " + (error as Error).message);
     }
   };
-
-
-  const handleEdit = (product: Product) => {
-    setEditProduct(product);
+  const handleEdit = (category: Category) => {
+    setEditCategory(category);
   };
-
   const handleSave = async () => {
-    if (!editProduct) return;
+    if (!editCategory) return;
     try {
-      const response = await fetch(`${API_URL}/${editProduct.id}`, {
+      const response = await fetch(`${API_URL}/${editCategory.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(editProduct),
+        body: JSON.stringify({ name: editCategory.name }),
       });
-      if (!response.ok) throw new Error("Failed to update product");
-      setProducts(products.map((p) => (p.id === editProduct.id ? editProduct : p)));
-      setEditProduct(null);
+
+      if (!response.ok) throw new Error("Failed to update category");
+      setCategories(categories.map((c) => (c.id === editCategory.id ? editCategory : c)));
+      setEditCategory(null);
     } catch (error) {
-      alert("Error updating product: " + (error as Error).message);
+      alert("Error updating category: " + (error as Error).message);
+    }
+  };
+  const handleDelete = async (id: number) => {
+    if (!confirm("Are you sure you want to delete this category?")) return;
+    try {
+      const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+      if (!response.ok) throw new Error("Failed to delete category");
+      setCategories(categories.filter((category) => category.id !== id));
+    } catch (error) {
+      alert("Error deleting category: " + (error as Error).message);
     }
   };
 
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Admin Panel</h1>
+      <div className="mb-4 flex gap-2">
+        <input
+          type="text"
+          placeholder="Enter category name"
+          value={newCategory}
+          onChange={(e) => setNewCategory(e.target.value)}
+          className="border p-2 rounded w-full"
+        />
+        <button onClick={handleAdd} className="bg-primary text-white px-4 py-2 rounded">
+          Add
+        </button>
+      </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <p>Loading categories...</p>
       ) : error ? (
-        <p className="text-red-500">Error: {error}</p>
+        <p className="text-secondary">Error: {error}</p>
       ) : (
-        <table className="w-full border-collapse border border-gray-300">
+        <table className="w-full border-collapse border border-gray">
           <thead>
-            <tr className="bg-gray-200">
+            <tr className="bg-gray">
               <th className="border p-2">ID</th>
-              <th className="border p-2">Category</th>
+              <th className="border p-2">Category Name</th>
               <th className="border p-2">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <tr key={product.id} className="text-center border-b">
-                <td className="border p-2">{product.id}</td>
-                <td className="border p-2">{product.category}</td>
+            {categories.map((category) => (
+              <tr key={category.id} className="border-b">
+                <td className="border p-2">{category.id}</td>
+                <td className="border p-2">
+                  {editCategory?.id === category.id ? (
+                    <input
+                      type="text"
+                      value={editCategory.name}
+                      onChange={(e) => setEditCategory({ ...editCategory, name: e.target.value })}
+                      className="border p-2 w-full rounded"
+                    />
+                  ) : (
+                    category.name
+                  )}
+                </td>
                 <td className="border p-2 flex justify-center gap-2">
-                  <button onClick={() => handleEdit(product)} className="text-primary cursor-pointer">
-                    Edit
-                  </button>
-                  <button onClick={() => handleDelete(product.id)} className="text-secondary cursor-pointer">
-                    Delete
-                  </button>
+                  {editCategory?.id === category.id ? (
+                    <>
+                      <button onClick={handleSave} className="bg-blue text-white px-3 py-1 rounded">
+                        Save
+                      </button>
+                      <button onClick={() => setEditCategory(null)} className="bg-gray text-white px-3 py-1 rounded">
+                        Cancel
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button onClick={() => handleEdit(category)} className="bg-primary text-white px-3 py-1 rounded">
+                        Edit
+                      </button>
+                      <button onClick={() => handleDelete(category.id)} className="bg-secondary text-white px-3 py-1 rounded">
+                        Delete
+                      </button>
+                    </>
+                  )}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-
-
-      {editProduct && (
-        <div className="mt-6 p-4 border rounded bg-gray-100">
-          <h2 className="text-xl font-semibold mb-2">Edit Product</h2>
-          <label className="block mb-2">
-          Category:
-            <input
-              type="text"
-              value={editProduct.category}
-              onChange={(e) => setEditProduct({ ...editProduct, category: e.target.value })}
-              className="border p-2 w-full rounded"
-            />
-          </label>
-          <button onClick={handleSave} className="bg-primary text-white px-4 py-2 rounded mt-2">
-            Save
-          </button>
-          <button onClick={() => setEditProduct(null)} className="ml-2 bg-secondary text-white px-4 py-2 rounded">
-            Cancel
-          </button>
-        </div>
-      )}
     </div>
   );
 };
 
-export default AdminPage;
+export default Admin;
