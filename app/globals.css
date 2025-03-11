@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-primary: #39db4a;
+  --color-secondary: #ff6868;
+  --color-dark: #272727;
+  --color-gray: #4A4A4A;
+  --color-white: #fff;
+  --color-white-assent: #FBFBFB
+  --color-disable: #EFEFEF;
+  --font-inter: Inter, "serif";
+  --font-weight: 400;
+}
+
+.primary-button{
+  @apply bg-primary text-white rounded-full cursor-pointer transition-all duration-200 active:scale-95 active:shadow-none
+}
+
+.main-heading{
+  @apply text-4xl md:text-5xl font-bold my-2 md:leading-snug leading-snug
+}
+
+.small-heading{
+  @apply text-secondary text-[20px] font-medium uppercase tracking-[17.5%]
+}
